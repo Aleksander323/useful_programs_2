@@ -1,0 +1,407 @@
+\documentclass[12pt, a4paper]{article}
+
+% Pakiety podstawowe i obsługa języka polskiego
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+
+% Pakiety do formatowania
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ulem} % do przekreślania tekstu (\sout)
+\usepackage{booktabs} % do ładnych tabel (\toprule, \midrule, \bottomrule)
+\usepackage{hyperref} % do linków
+\usepackage{xcolor} % do kolorowania składni
+\usepackage{parskip}
+
+% Pakiet do kodów źródłowych
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    captionpos=b,
+    literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\.z}}1 {Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ź}{{\'Z}}1 {Ż}{{\.Z}}1
+}
+
+% Konfiguracja linków
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\title{Markdown, Colab i GitHub}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+Na początek poznamy trzy narzędzia, które rozwiązują trzy różne problemy:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lp{10cm}}
+\toprule
+\textbf{Narzędzie} & \textbf{Do czego służy?} \\
+\midrule
+Markdown & do prostego zapisywania uporządkowanego tekstu, dokumentacji i raportów \\
+Google Colab & do łączenia tekstu, kodu, obliczeń i wyników w jednym notebooku \\
+GitHub & do przechowywania projektu, śledzenia zmian i współpracy \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Te trzy elementy bardzo dobrze ze sobą współpracują. Podstawą wszędzie jest przygotowanie opisu w kodzie Markdown. Do tego dochodzić będą obliczenia w Colabie, a następnie przechowanie źródła i wyniki w repozytorium GitHub.
+
+\section{Markdown}
+
+\subsection{Co to jest Markdown?}
+Markdown to prosty język znaczników służący do formatowania zwykłego tekstu.
+Najczęściej zapisujemy go w plikach z rozszerzeniem: \texttt{.md}
+
+Przykłady:
+\begin{itemize}
+    \item \texttt{README.md}
+    \item \texttt{raport.md}
+    \item \texttt{notatki.md}
+\end{itemize}
+
+Plik Markdown jest zwykłym plikiem tekstowym. Można go otworzyć praktycznie w każdym edytorze. Specjalne znaki, takie jak \texttt{\#}, \texttt{*}, \texttt{-} czy \texttt{\$}, informują program wyświetlający dokument, jak ma wyglądać tekst.
+
+\subsection{Dlaczego Markdown jest tak istotny?}
+Za każdym razem rozmawiając z chatem AI tak naprawdę rozmawiamy z plikiem Markdown. AI potrafi interpretować składnię Markdown i generować raporty w tym formacie. 
+
+Dlatego też jak skopiujesz output to ma on całą masę znaczników (np. \texttt{\#}, \texttt{*}, \texttt{-}, czy \texttt{\$}), które są potrzebne do poprawnego renderowania.
+
+Github (archiwum programistyczne) zawiera opisy również w Markdown. Podobnie Google Colab (środowisko programistyczne pythona) potrafią renderować Markdown. Dzięki temu możemy przygotować raport, który będzie wyglądał dobrze zarówno w przeglądarce, jak i w notebooku.
+
+Warto od razu rozróżnić dwie rzeczy:
+\begin{itemize}
+    \item \textbf{źródło Markdown} --- tekst, który wpisujemy do pliku,
+    \item \textbf{wyrenderowany dokument} --- wygląd tego tekstu po interpretacji składni Markdown.
+\end{itemize}
+
+Na GitHubie możemy przełączać się między widokiem źródła i wyrenderowanym dokumentem. 
+
+Podobnie edytory kodu jak VS Code, PyCharm czy Jupyter Notebook potrafią renderować Markdown w osobnym oknie podglądu.
+
+\subsection{Zanim zaczniemy pisać w Markdown zobacz przykładowy plik Markdown.}
+Raport na temat ciała na sprężynie: 
+\begin{itemize}
+    \item \glqq Ciało na sprężynie\grqq{}. 
+\end{itemize}
+
+
+\section{Nagłówki}
+Nagłówki budują strukturę dokumentu. Im więcej znaków \texttt{\#}, tym niższy poziom nagłówka.
+
+\textbf{Źródło:}
+\begin{lstlisting}[language=bash]
+# Tytuł dokumentu
+## Głowna sekcja
+### Podsekcja
+\end{lstlisting}
+
+\textbf{Efekt:} \\
+{\Large \textbf{Tytuł dokumentu}} \\
+{\large \textbf{Główna sekcja}} \\
+{\normalsize \textbf{Podsekcja}}
+
+W praktyce jeden dokument powinien mieć jeden główny nagłówek \texttt{\#}. Dalsze części dokumentu organizujemy za pomocą \texttt{\#\#}, \texttt{\#\#\#} itd.
+
+\section{Pogrubienie, kursywa i przekreślenie}
+
+\textbf{Źródło:}
+\begin{lstlisting}
+**tekst pogrubiony**
+*tekst pochylony*
+~~tekst przekreslony~~
+***tekst pogrubiony i pochylony***
+\end{lstlisting}
+
+\textbf{Efekt:}\\
+\textbf{tekst pogrubiony}\\
+\textit{tekst pochylony}\\
+\sout{tekst przekreślony}\\
+\textbf{\textit{tekst pogrubiony i pochylony}}
+
+Wyróżnień warto używać oszczędnie. Jeśli wszystko jest pogrubione, nic nie jest naprawdę wyróżnione.
+
+\section{Akapit i nowa linia}
+Nowy akapit tworzymy przez pozostawienie pustej linii.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+To jest pierwszy akapit.
+
+To jest drugi akapit.
+\end{lstlisting}
+
+\textbf{Efekt:}\\
+To jest pierwszy akapit.
+
+To jest drugi akapit.
+
+To ważna zasada: w Markdown pojedyncze naciśnięcie \texttt{Enter} nie zawsze oznacza nowy akapit.
+
+\section{Listy punktowane}
+\textbf{Źródło:}
+\begin{lstlisting}
+- Markdown
+- Colab
+- GitHub
+\end{lstlisting}
+
+\textbf{Efekt:}
+\begin{itemize}
+    \item Markdown
+    \item Colab
+    \item GitHub
+\end{itemize}
+
+Listy można zagnieżdżać:
+\begin{lstlisting}
+- GitHub
+  - repozytorium
+  - Issues
+  - historia zmian
+- Colab
+  - tekst
+  - kod
+  - wyniki
+\end{lstlisting}
+\textbf{Efekt:}
+\begin{itemize}
+    \item GitHub
+    \begin{itemize}
+        \item repozytorium
+        \item Issues
+        \item historia zmian
+    \end{itemize}
+    \item Colab
+    \begin{itemize}
+        \item tekst
+        \item kod
+        \item wyniki
+    \end{itemize}
+\end{itemize}
+\newpage
+\section{Listy numerowane}
+\textbf{Źródło:}
+\begin{lstlisting}
+1. przygotuj dane,
+2. wykonaj obliczenia,
+3. zapisz wynik,
+4. opisz wynik.
+\end{lstlisting}
+
+\textbf{Efekt:}
+\begin{enumerate}
+    \item przygotuj dane,
+    \item wykonaj obliczenia,
+    \item zapisz wynik,
+    \item opisz wynik.
+\end{enumerate}
+Listy numerowane są szczególnie przydatne przy opisie procedury lub instrukcji.
+
+\section{Checklisty}
+GitHub obsługuje listy zadań.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+- [x] utworzono notebook
+- [x] wykonano obliczenia
+- [ ] sprawdzono wynik
+\end{lstlisting}
+
+\textbf{Efekt:}
+\begin{itemize}
+    \item[$\boxtimes$] utworzono notebook
+    \item[$\boxtimes$] wykonano obliczenia
+    \item[$\square$] sprawdzono wynik
+\end{itemize}
+Checklisty bardzo dobrze nadają się do krótkich list kontrolnych w dokumentacji i GitHub Issues.
+\newpage
+\section{Linki}
+\textbf{Źródło:}
+\begin{lstlisting}
+[GitHub](https://github.com/)
+\end{lstlisting}
+
+\textbf{Efekt:}\\
+\href{https://github.com/}{GitHub}
+
+Zamiast wklejać długi adres do strony, warto umieścić go pod czytelną nazwą.
+
+\section{Obrazy}
+Obraz osadzamy podobnie jak link, ale na początku dodajemy znak \texttt{!}.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+![Wykres zaleznosci y od x](wykres.png)
+\end{lstlisting}
+
+Jeżeli plik \texttt{wykres.png} znajduje się w tym samym folderze co dokument Markdown, GitHub wyświetli obraz w miejscu tej instrukcji. Jeżeli plik znajduje się w podfolderze \texttt{files}, używamy ścieżki:
+\begin{lstlisting}
+![Wykres zaleznosci y od x](files/wykres.png)
+\end{lstlisting}
+
+\textbf{Efekt:}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{files/wykres.png}
+\end{figure}
+
+Tekst w nawiasach kwadratowych jest opisem obrazu. Warto go uzupełniać --- pomaga zrozumieć zawartość także wtedy, gdy obraz nie może zostać wyświetlony. 
+
+W projektach przechowywanych w repozytorium zwykle wygodniej używać ścieżek względnych niż pełnych adresów internetowych.
+
+\section{Tabele}
+\textbf{Źródło:}
+\begin{lstlisting}
+| Narzedzie | Typ pliku | Zastosowanie |
+| --- | --- | --- |
+| Markdown | .md | dokumentacja |
+| Colab | .ipynb | obliczenia |
+| GitHub | repozytorium | historia projektu |
+\end{lstlisting}
+
+\textbf{Efekt:}
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Narzędzie} & \textbf{Typ pliku} & \textbf{Zastosowanie} \\
+\midrule
+Markdown & \texttt{.md} & dokumentacja \\
+Colab & \texttt{.ipynb} & obliczenia \\
+GitHub & repozytorium & historia projektu \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Tabele są dobre do krótkich zestawień. Jeśli w komórkach pojawiają się długie akapity tekstu, zwykle lepiej wrócić do zwykłych sekcji i list.
+
+\section{Kod w tekście}
+Nazwy plików, komendy i bardzo krótkie fragmenty kodu warto oznaczać pojedynczym backtickiem.
+
+\textbf{Źródło:}\\
+\texttt{Uruchom plik `analiza.py` i sprawdź wartość zmiennej `wynik`.}
+
+\textbf{Efekt:}\\
+Uruchom plik \texttt{analiza.py} i sprawdź wartość zmiennej \texttt{wynik}.
+
+\section{Bloki kodu}
+Większy fragment kodu umieszczamy w osobnym bloku.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+```python
+x = 5
+y = x**2
+print(y)
+```
+\end{lstlisting}
+
+Podanie nazwy języka, np. \texttt{python}, \texttt{bash}, \texttt{html} czy \texttt{json}, pozwala GitHubowi kolorować składnię.
+
+W raporcie technicznym dobrze jest pokazać krótki fragment kodu, który jest istotny dla opisywanego wyniku. Nie trzeba kopiować do raportu całego programu.
+
+\section{Cytaty}
+
+\textbf{Źródło:}
+\begin{verbatim}
+> Wynik należy zawsze sprawdzić przed jego wykorzystaniem.
+\end{verbatim}
+
+\textbf{Efekt:}
+\begin{quote}
+Wynik należy zawsze sprawdzić przed jego wykorzystaniem.
+\end{quote}
+
+Cytaty można wykorzystać także do krótkiego wyróżnienia komentarza lub uwagi.
+
+\section{Matematyka}
+GitHub potrafi renderować wzory matematyczne. Krótki wzór umieszczamy wewnątrz pojedynczych znaków dolara.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+Energia spoczynkowa dana jest wzorem $E=mc^2$.    
+\end{lstlisting}
+\textbf{Efekt:}
+
+Energia spoczynkowa dana jest wzorem $E=mc^2$. Dłuższy wzór umieszczamy w osobnym bloku.
+
+\textbf{Źródło:}
+\begin{lstlisting}
+$$
+\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}
+$$
+\end{lstlisting}
+
+\textbf{Efekt:}
+$$\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}$$
+Macierze zapisujemy wielowierszowo:
+
+\textbf{Źródło:}
+\begin{lstlisting}
+$$
+A= 
+\begin{pmatrix} 
+1 & 2 \\ 
+3 & 4 \\ 
+\end{pmatrix}
+$$
+\end{lstlisting}
+
+\textbf{Efekt:}
+$$A= \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ \end{pmatrix}$$
+
+\section{Zrzut ekranu i transkrypcja do Markdown}
+Czasem informacja istnieje tylko jako obraz: zrzut ekranu programu, zdjęcie tabeli, komunikat błędu albo fragment zeskanowanego dokumentu. AI może pomóc przepisać zawartość obrazu do tekstu. Taki proces nazywamy tutaj \textbf{transkrypcją}. 
+
+Przykładowy workflow:
+\begin{enumerate}
+\item zachowujemy oryginalny obraz,
+\item prosimy AI o \textbf{przepisanie jego zawartości do kodu markdown}
+\item zapisujemy wynik w pliku tekstowym lub Markdown,
+\item porównujemy transkrypcję z obrazem,
+\item poprawiamy ewentualne błędy.
+\end{enumerate}Największej ostrożności wymagają:
+\begin{itemize}
+\item liczby,
+\item wzory,
+\item nazwy plików,
+\item adresy,
+\item fragmenty kodu,
+\item komunikaty błędów.
+\end{itemize}
+Transkrypcja wygenerowana przez AI jest \textbf{wersją roboczą}, dopóki człowiek jej nie sprawdzi.
+
+\section{Poprawne formatowanie matematyki w Markdown}
+W materiałach tego kursu polecamy stosowanie prostego zestawu reguł formatowania matematyki przygotowanego specjalnie tak, aby pliki dobrze renderowały się na GitHubie: 
+\begin{itemize}
+    \item \texttt{hints.md}. 
+\end{itemize}
+ Pracując z chatem AI i domagając się kodu markdowna, warto załączać ten plik jako kontekst, aby AI od razu generowało poprawny kod w Markdown. 
+ 
+ Różne systemy: przeglądarkowe chaty AI, Edytor Visual Studio, Colab i GitHub, mogą różnie renderować wzory matematyczne!
+
+Częstym błędem jest używanie w kodzie Markdown znaków \verb|\[]| i \verb|\]| zamiast \verb|$ $| do oznaczania wzorów matematycznych. Wtedy GitHub nie renderuje wzoru, a Colab renderuje go poprawnie.
+
+\section{Dobre materiały o Markdown}
+\begin{itemize}
+\item \href{https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax}{GitHub Docs --- Basic writing and formatting syntax}
+\item \href{https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions}{GitHub Docs --- Writing mathematical expressions}
+\item \href{https://www.markdownguide.org/basic-syntax/}{Markdown Guide --- Basic Syntax}
+\item \href{https://www.markdownguide.org/cheat-sheet/}{Markdown Guide --- Cheat Sheet}
+\end{itemize}
+
+\end{document}
