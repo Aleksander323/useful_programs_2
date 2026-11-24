@@ -1,0 +1,342 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\setlist[itemize]{label=-}
+
+\begin{document}
+
+\begin{center}
+    \LARGE \textbf{Rozwiązania zadań -- Podstawy Fizyki I, Lista 7}
+\end{center}
+\vspace{0.5cm}
+
+\textbf{Uwaga do obliczeń:} W celu zachowania zgodności z podanymi odpowiedziami, we wszystkich zadaniach przyjęto wartość przyspieszenia ziemskiego $g = 10 \text{ m/s}^2$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 1
+\section*{Zadanie 1}
+
+\textbf{Treść zadania:} \\
+Z wysokości $h=80$ m rzucono poziomo kamień z prędkością $v_{0}=20 \text{ m/s}$. 
+a) Jak daleko poleci kamień i po jakim czasie upadnie? 
+b) Jaką prędkość będzie miał w chwili uderzenia o ziemię (podaj wartość i kąt)? 
+c) Jaką prędkość (wartość i kierunek) będzie miał kamień po 1 s lotu? 
+d) Po jakim czasie będzie on w połowie swej wysokości maksymalnej?
+
+\textbf{Teoria i wzory (rzut poziomy):}
+Ruch rozkładamy na dwa niezależne kierunki:
+\begin{itemize}
+    \item Poziomy (oś X) - ruch jednostajny: $x(t) = v_{0}t$, \quad $v_x(t) = v_0$
+    \item Pionowy (oś Y) - spadek swobodny: $y(t) = h - \frac{1}{2}gt^2$, \quad $v_y(t) = -gt$
+\end{itemize}
+Wartość prędkości wypadkowej: $v = \sqrt{v_x^2 + v_y^2}$. 
+Kąt nachylenia prędkości do poziomu: $\tan\alpha = \frac{|v_y|}{v_x}$.
+
+\textbf{Rozwiązanie:} \\
+\textbf{a)} Czas spadania wyznaczamy z warunku $y(t) = 0$:
+\begin{align*}
+    0 &= h - \frac{1}{2}gt^2 \implies t = \sqrt{\frac{2h}{g}} \\
+    t &= \sqrt{\frac{2 \cdot 80}{10}} = \sqrt{16} = 4 \text{ s}
+\end{align*}
+Zasięg rzutu (odległość w poziomie):
+\begin{align*}
+    x(4) &= 20 \cdot 4 = 80 \text{ m}
+\end{align*}
+
+\textbf{b)} Prędkość po czasie $t = 4 \text{ s}$:
+\begin{align*}
+    v_x &= 20 \text{ m/s} \\
+    v_y &= -10 \cdot 4 = -40 \text{ m/s} \\
+    v &= \sqrt{20^2 + (-40)^2} = \sqrt{400 + 1600} = \sqrt{2000} \approx 44,7 \text{ m/s}
+\end{align*}
+Kąt upadku:
+\begin{align*}
+    \tan\alpha &= \frac{40}{20} = 2 \implies \alpha = \arctan(2) \approx 63,4^\circ
+\end{align*}
+
+\textbf{c)} Prędkość po czasie $t = 1 \text{ s}$:
+\begin{align*}
+    v_x &= 20 \text{ m/s} \\
+    v_y &= -10 \cdot 1 = -10 \text{ m/s} \\
+    v &= \sqrt{20^2 + (-10)^2} = \sqrt{400 + 100} = \sqrt{500} \approx 22,4 \text{ m/s}
+\end{align*}
+Kąt prędkości:
+\begin{align*}
+    \tan\beta &= \frac{10}{20} = 0,5 \implies \beta = \arctan(0,5) \approx 26,6^\circ
+\end{align*}
+
+\textbf{d)} Wysokość maksymalna to wysokość początkowa $h=80 \text{ m}$. Połowa tej wysokości wynosi $40 \text{ m}$. Szukamy czasu $t$, dla którego $y(t) = 40$:
+\begin{align*}
+    40 &= 80 - \frac{1}{2} \cdot 10 \cdot t^2 \\
+    5t^2 &= 40 \implies t^2 = 8 \implies t = \sqrt{8} \approx 2,83 \text{ s}
+\end{align*}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 2
+\section*{Zadanie 2}
+
+\textbf{Treść zadania:} \\
+Kamień wyrzucono z katapulty z prędkością początkową $20 \text{ m/s}$ w górę, pod kątem $45^\circ$. Wyznaczyć położenie i prędkość kamienia po czasie 1,2 s.
+
+\textbf{Teoria i wzory (rzut ukośny):}
+\begin{itemize}
+    \item Położenie: $x(t) = v_0 \cos(\alpha) t$, \quad $y(t) = v_0 \sin(\alpha) t - \frac{1}{2}gt^2$
+    \item Prędkość: $v_x(t) = v_0 \cos\alpha$, \quad $v_y(t) = v_0 \sin\alpha - gt$
+\end{itemize}
+
+\textbf{Rozwiązanie:} \\
+Dane: $v_0 = 20 \text{ m/s}$, $\alpha = 45^\circ$, $t = 1,2 \text{ s}$. Obliczamy składowe prędkości początkowej:
+\begin{align*}
+    v_{0x} &= v_0 \cos(45^\circ) = 20 \cdot \frac{\sqrt{2}}{2} = 10\sqrt{2} \approx 14,14 \text{ m/s} \\
+    v_{0y} &= v_0 \sin(45^\circ) = 20 \cdot \frac{\sqrt{2}}{2} = 10\sqrt{2} \approx 14,14 \text{ m/s}
+\end{align*}
+
+Położenie po czasie $t = 1,2 \text{ s}$:
+\begin{align*}
+    x(1,2) &= 14,14 \cdot 1,2 \approx 16,97 \text{ m} \\
+    y(1,2) &= 14,14 \cdot 1,2 - \frac{1}{2} \cdot 10 \cdot (1,2)^2 = 16,97 - 5 \cdot 1,44 = 16,97 - 7,2 = 9,77 \text{ m}
+\end{align*}
+Wektor położenia: $\vec{r} \approx [16,97; \ 9,77] \text{ m}$.
+
+Prędkość po czasie $t = 1,2 \text{ s}$:
+\begin{align*}
+    v_x &= 14,14 \text{ m/s} \\
+    v_y &= 14,14 - 10 \cdot 1,2 = 14,14 - 12 = 2,14 \text{ m/s}
+\end{align*}
+Wektor prędkości: $\vec{v} \approx [14,14; \ 2,14] \text{ m/s}$.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 3
+\section*{Zadanie 3}
+
+\textbf{Treść zadania:} \\
+Wystrzelono ciało z prędkością początkową $v_{0}=80 \text{ m/s}$, pod kątem $\alpha=60^\circ$. Obliczyć wartość i kierunek prędkości po upływie czasu równego połowie czasu wznoszenia się.
+
+\textbf{Teoria i wzory:}
+Ciało osiąga maksymalną wysokość, gdy pionowa składowa prędkości spada do zera ($v_y = 0$).
+Czas wznoszenia wynosi $t_w = \frac{v_0 \sin\alpha}{g}$. Połowa tego czasu to $t = \frac{v_0 \sin\alpha}{2g}$.
+
+\textbf{Rozwiązanie:} \\
+Obliczamy składowe prędkości przy połowie czasu wznoszenia.
+Składowa pionowa:
+\begin{align*}
+    v_y(t) &= v_0 \sin\alpha - g \left(\frac{v_0 \sin\alpha}{2g}\right) = v_0 \sin\alpha - \frac{1}{2}v_0 \sin\alpha = \frac{1}{2}v_0 \sin\alpha \\
+    v_y &= \frac{1}{2} \cdot 80 \cdot \sin(60^\circ) = 40 \cdot \frac{\sqrt{3}}{2} = 20\sqrt{3} \approx 34,64 \text{ m/s}
+\end{align*}
+Składowa pozioma (stała):
+\begin{align*}
+    v_x &= v_0 \cos(60^\circ) = 80 \cdot \frac{1}{2} = 40 \text{ m/s}
+\end{align*}
+Wartość prędkości:
+\begin{align*}
+    v &= \sqrt{v_x^2 + v_y^2} = \sqrt{40^2 + (20\sqrt{3})^2} = \sqrt{1600 + 400 \cdot 3} = \sqrt{2800} \approx 52,9 \text{ m/s}
+\end{align*}
+Kierunek (kąt $\beta$ do poziomu):
+\begin{align*}
+    \tan\beta &= \frac{v_y}{v_x} = \frac{20\sqrt{3}}{40} = \frac{\sqrt{3}}{2} \approx 0,866 \implies \beta \approx 40,9^\circ
+\end{align*}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 4
+\section*{Zadanie 4}
+
+\textbf{Treść zadania:} \\
+Okręt piratów znajduje się w odległości 560 m od fortu. Działo obrońców ustawione na poziomie morza strzela z $v_{0}=82 \text{ m/s}$. a) Pod jakim kątem strzelać, aby trafić? b) Jak daleko powinien odpłynąć okręt, by znaleźć się poza maksymalnym zasięgiem?
+
+\textbf{Teoria i wzory:}
+Zasięg całkowity rzutu ukośnego na płaskim terenie: $Z = \frac{v_0^2 \sin(2\alpha)}{g}$. Maksymalny zasięg uzyskujemy dla $\alpha = 45^\circ$, wtedy $\sin(2\alpha)=1$, stąd $Z_{max} = \frac{v_0^2}{g}$.
+
+\textbf{Rozwiązanie:} \\
+\textbf{a)} Szukamy kąta $\alpha$, dla którego $Z = 560 \text{ m}$:
+\begin{align*}
+    \frac{82^2 \sin(2\alpha)}{10} &= 560 \\
+    \frac{6724 \sin(2\alpha)}{10} &= 560 \implies \sin(2\alpha) = \frac{5600}{6724} \approx 0,8328 \\
+    2\alpha &\approx 56,4^\circ \implies \alpha \approx 28,2^\circ
+\end{align*}
+Ze względu na symetrię paraboli, istnieje drugi kąt dający ten sam zasięg (tzw. strzał stromy): $\alpha_2 = 90^\circ - 28,2^\circ = 61,8^\circ$.
+
+\textbf{b)} Obliczamy maksymalny zasięg $Z_{max}$:
+\begin{align*}
+    Z_{max} &= \frac{82^2}{10} = 672,4 \text{ m}
+\end{align*}
+Odległość, na jaką okręt musi się oddalić:
+\begin{align*}
+    \Delta x &= Z_{max} - 560 = 672,4 - 560 = 112,4 \text{ m}
+\end{align*}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 5
+\section*{Zadanie 5}
+
+\textbf{Treść zadania:} \\
+Z wieży o wys. $H=10$ m wystrzelono z $v_0=100 \text{ m/s}$, pod kątem $\alpha=30^\circ$ pocisk. Z jaką prędkością uderzył o ziemię? Jaki kąt tworzył tor pocisku z ziemią? Napisz równanie toru.
+
+\textbf{Teoria i wzory:}
+Prędkość końcową można szybko wyliczyć z zasady zachowania energii: $E_k + E_p = \text{const}$, co daje $\frac{1}{2}mv_0^2 + mgH = \frac{1}{2}mv_k^2$. Równanie toru $y(x)$ wyznaczamy eliminując czas $t$ z równań parametrycznych $x(t)$ i $y(t)$.
+
+\textbf{Rozwiązanie:} \\
+Składowa pozioma (stała):
+\begin{align*}
+    v_x &= v_0 \cos(30^\circ) = 100 \cdot \frac{\sqrt{3}}{2} = 50\sqrt{3} \approx 86,6 \text{ m/s}
+\end{align*}
+Prędkość końcowa $v_k$ z zasady zachowania energii:
+\begin{align*}
+    v_k^2 &= v_0^2 + 2gH \\
+    v_k &= \sqrt{100^2 + 2 \cdot 10 \cdot 10} = \sqrt{10000 + 200} = \sqrt{10200} \approx 101 \text{ m/s}
+\end{align*}
+Składowa pionowa prędkości przy uderzeniu:
+\begin{align*}
+    v_y &= \sqrt{v_k^2 - v_x^2} = \sqrt{10200 - 7500} = \sqrt{2700} \approx 51,96 \text{ m/s}
+\end{align*}
+Kąt uderzenia o ziemię ($\gamma$):
+\begin{align*}
+    \tan\gamma &= \frac{v_y}{v_x} = \frac{\sqrt{2700}}{\sqrt{7500}} = \sqrt{\frac{27}{75}} = \sqrt{\frac{9}{25}} = \frac{3}{5} = 0,6 \\
+    \gamma &= \arctan(0,6) \approx 31^\circ \text{ (w przybliżeniu } 30^\circ\text{)}
+\end{align*}
+Równanie toru $y(x)$ -- wyznaczamy czas $t = \frac{x}{v_0 \cos\alpha}$ i wstawiamy do $y(t)$:
+\begin{align*}
+    y(x) &= H + x \tan\alpha - \frac{gx^2}{2v_0^2 \cos^2\alpha} \\
+    y(x) &= 10 + x \tan(30^\circ) - \frac{10 x^2}{2 \cdot 10000 \cdot \left(\frac{\sqrt{3}}{2}\right)^2} \\
+    y(x) &= 10 + \frac{\sqrt{3}}{3}x - \frac{10 x^2}{20000 \cdot \frac{3}{4}} = 10 + \frac{\sqrt{3}}{3}x - \frac{x^2}{1500}
+\end{align*}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 6
+\section*{Zadanie 6}
+
+\textbf{Treść zadania:} \\
+Tenisistka nadaje piłce na wys. $2,37 \text{ m}$ prędkość poziomą $23,6 \text{ m/s}$, stojąc $12 \text{ m}$ od siatki. Czy piłka przejdzie nad siatką o wys. $0,91 \text{ m}$?
+
+\textbf{Teoria i wzory (rzut poziomy):}
+Sprawdzamy wysokość $y(t)$ piłki w momencie, gdy pokonuje ona dystans poziomy $d = 12 \text{ m}$.
+Wzory: $t = \frac{d}{v_x}$ oraz $y(t) = H - \frac{1}{2}gt^2$.
+
+\textbf{Rozwiązanie:} \\
+Czas dolotu do siatki:
+\begin{align*}
+    t &= \frac{12}{23,6} \approx 0,508 \text{ s}
+\end{align*}
+Wysokość piłki na odległości $12 \text{ m}$ od tenisistki (dla $g=10 \text{ m/s}^2$):
+\begin{align*}
+    y(0,508) &= 2,37 - \frac{1}{2} \cdot 10 \cdot (0,508)^2 = 2,37 - 5 \cdot 0,258 = 2,37 - 1,29 = 1,08 \text{ m}
+\end{align*}
+Ponieważ wysokość piłki $1,08 \text{ m}$ jest większa niż wysokość siatki $0,91 \text{ m}$, \textbf{piłka przejdzie nad siatką}.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 7
+\section*{Zadanie 7}
+
+\textbf{Treść zadania:} \\
+Pocisk wystrzelono z $v_0=35 \text{ m/s}$ pod kątem $30^\circ$ do podłoża w stronę ciężarówki odległej o $45 \text{ m}$, jadącej naprzeciw z $v_c=15 \text{ m/s}$. Po jakim czasie nastąpi trafienie?
+
+\textbf{Teoria i wzory (ruch względny):}
+Zjawisko trafienia analizujemy jednowymiarowo wzdłuż osi poziomej X. Drogi pokonane przez oba ciała w poziomie muszą sumować się do odległości początkowej $D$.
+Suma przebytych odległości to: $x_p + x_c = D$, stąd $v_{0x}t + v_c t = D$.
+
+\textbf{Rozwiązanie:} \\
+Składowa pozioma prędkości pocisku:
+\begin{align*}
+    v_{0x} &= v_0 \cos(30^\circ) = 35 \cdot \frac{\sqrt{3}}{2} \approx 35 \cdot 0,866 \approx 30,31 \text{ m/s}
+\end{align*}
+Równanie spotkania:
+\begin{align*}
+    (v_{0x} + v_c) \cdot t &= D \\
+    (30,31 + 15) \cdot t &= 45 \\
+    45,31 \cdot t &= 45 \implies t = \frac{45}{45,31} \approx 0,99 \text{ s}
+\end{align*}
+Trafienie nastąpi po czasie 0,99 s.
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 8
+\section*{Zadanie 8}
+
+\textbf{Treść zadania:} \\
+Piłkę wybito z ziemi. Na wys. $9,1 \text{ m}$ ma wektor prędkości $\vec{v_{1}}=7,6\hat{i}+6,1\hat{j}$. Na jaką maksymalną wys. się wzniesie? Zasięg całkowity? Wektor prędkości tuż przed spadkiem?
+
+\textbf{Teoria i wzory:}
+Prędkość wzdłuż osi X jest stała, czyli $v_{0x} = v_x = 7,6 \text{ m/s}$. Prędkość na danej wysokości jest związana z prędkością początkową równaniem $v_y^2 = v_{0y}^2 - 2gy$. Maksymalna wysokość wynosi $H_{max} = \frac{v_{0y}^2}{2g}$.
+
+\textbf{Rozwiązanie:} \\
+Wyznaczamy pionową prędkość początkową $v_{0y}$:
+\begin{align*}
+    (6,1)^2 &= v_{0y}^2 - 2 \cdot 10 \cdot 9,1 \\
+    37,21 &= v_{0y}^2 - 182 \implies v_{0y}^2 = 219,21 \implies v_{0y} \approx 14,8 \text{ m/s}
+\end{align*}
+\textbf{Maksymalna wysokość:}
+\begin{align*}
+    H_{max} &= \frac{v_{0y}^2}{2g} = \frac{219,21}{20} \approx 11 \text{ m}
+\end{align*}
+\textbf{Odległość w poziomie (zasięg):} Czas lotu to $t = \frac{2v_{0y}}{g} = \frac{2 \cdot 14,8}{10} = 2,96 \text{ s}$.
+\begin{align*}
+    Z &= v_x \cdot t = 7,6 \cdot 2,96 \approx 22,5 \text{ m}
+\end{align*}
+\textbf{Prędkość końcowa:} Ze względu na symetrię lotu parabola, prędkość końcowa ma składową Y ujemną i równą co do wartości początkowej: $\vec{v}_k = 7,6\hat{i} - 14,8\hat{j}$.
+Wartość wektora:
+\begin{align*}
+    |v_k| &= \sqrt{7,6^2 + (-14,8)^2} = \sqrt{57,76 + 219,04} = \sqrt{276,8} \approx 16,6 \text{ m/s}
+\end{align*}
+Kąt uderzenia (do osi X):
+\begin{align*}
+    \tan\alpha &= \frac{|-14,8|}{7,6} \approx 1,947 \implies \alpha \approx 63^\circ
+\end{align*}
+
+\vspace{0.5cm}
+\hrule
+\vspace{0.5cm}
+
+% ZADANIE 9
+\section*{Zadanie 9}
+
+\textbf{Treść zadania:} \\
+Przy powierzchni ziemi rzucono poziomo ciało z $v_0$. Znajdź wartość przyspieszenia stycznego i normalnego po czasie t.
+
+\textbf{Teoria i wzory:}
+Przyspieszenie styczne to pochodna wartości prędkości po czasie: $a_s = \frac{dv}{dt}$. Przyspieszenie całkowite w rzucie wynosi $\vec{a} = \vec{g}$. Zależność między nimi: $g^2 = a_s^2 + a_n^2$.
+Wartość prędkości: $v(t) = \sqrt{v_0^2 + g^2 t^2}$.
+
+\textbf{Rozwiązanie:} \\
+Obliczamy przyspieszenie styczne $a_s$ z definicji (pochodna z $v$):
+\begin{align*}
+    a_s &= \frac{d}{dt} \left(v_0^2 + g^2 t^2\right)^{\frac{1}{2}} \\
+    a_s &= \frac{1}{2\sqrt{v_0^2 + g^2 t^2}} \cdot \left(0 + 2g^2 t\right) = \frac{g^2 t}{\sqrt{v_0^2 + g^2 t^2}}
+\end{align*}
+Mając całkowite przyspieszenie ziemskie ($a = g$), obliczamy przyspieszenie normalne $a_n$:
+\begin{align*}
+    a_n^2 &= g^2 - a_s^2 \\
+    a_n^2 &= g^2 - \left(\frac{g^2 t}{\sqrt{v_0^2 + g^2 t^2}}\right)^2 = g^2 - \frac{g^4 t^2}{v_0^2 + g^2 t^2} \\
+    a_n^2 &= \frac{g^2 (v_0^2 + g^2 t^2) - g^4 t^2}{v_0^2 + g^2 t^2} = \frac{g^2 v_0^2 + g^4 t^2 - g^4 t^2}{v_0^2 + g^2 t^2} = \frac{g^2 v_0^2}{v_0^2 + g^2 t^2} \\
+    a_n &= \frac{g v_0}{\sqrt{v_0^2 + g^2 t^2}}
+\end{align*}
+\textbf{Odpowiedź:} Przyspieszenie styczne $a_s = \frac{g^2 t}{\sqrt{v_0^2 + g^2 t^2}}$, a przyspieszenie normalne $a_n = \frac{g v_0}{\sqrt{v_0^2 + g^2 t^2}}$.
+
+\end{document}
